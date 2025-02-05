@@ -6,9 +6,9 @@
 <%
 String vuname=request.getParameter("user");
 String vpassword=request.getParameter("pass");
-String vfullname=request.getParameter("fn");
-String vdeptid=request.getParameter("di");
-String vsignup=request.getParameter("SingUp");
+String vfullname=request.getParameter("fullname");
+String vdeptid=request.getParameter("DIP");
+String vsignup=request.getParameter("login");
 
 try{
   Class.forName("oracle.jdbc.driver.OracleDriver");
