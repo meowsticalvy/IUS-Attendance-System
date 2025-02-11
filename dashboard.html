@@ -1,0 +1,5 @@
+<html>
+<body>
+	<h1>Login Sucessful</h1>
+</body>
+</html>

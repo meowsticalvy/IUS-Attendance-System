@@ -121,7 +121,7 @@
         <div class="header">
             <h2>Sign Up</h2>
         </div>
-        <form>
+        <form action = "bregistration.jsp" method="post">
             <div class="input-field">
                 <label for="user">Username:</label>
                 <input type="text" id="user" name="user" placeholder="Enter your username">
@@ -140,11 +140,11 @@
             </div>
             <div class="input-field">
                 <label for="DIP">Dept-ID:</label>
-                <input type="text" id="DIP" name="DIP" placeholder="Enter your dept ID">
+                <input type="text" id="DI" name="DI" placeholder="Enter your dept ID">
             </div>
 
-            <button type="submit" class="btn">Sign Up</button>
-            <button type="reset" class="btn" style="background-color: #f44336;">Cancel</button>
+            <button type="submit" name="signup" class="btn">Sign Up</button>
+            <button type="reset" name="cancel" class="btn" style="background-color: #f44336;">Cancel</button>
         </form>
 
         <div class="link">
