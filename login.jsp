@@ -12,7 +12,7 @@
 		try 
 		{
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection conn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","a12345");
+			Connection conn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","alvi32");
 			if (v_login.equals("Login"))
 			{
 			Statement st=conn.createStatement();
