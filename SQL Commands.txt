@@ -2,8 +2,8 @@
 
 CREATE TABLE ADepartment032
 (
-dept_id varchar2(5) primary key,
-dept_name varchar2(25) not null
+dept_id varchar2(10) primary key,
+dept_name varchar2(50) not null
 ); 
 
 
@@ -145,7 +145,10 @@ SELECT * FROM dual;
 
 
 
+## Video 9 (Data Mismatch Koree)
 
+Update ADepartment032
+set dept_id='CSE' where dept_id='sos';
 
 
 
