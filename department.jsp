@@ -57,6 +57,22 @@
 					out.print("<br>");
 				}
 			}
+			
+			else if( (a_BTNUpdate.equals("Update") && a_deptid.length()>1) )
+			{
+				PreparedStatement a_ps=a_connection.prepareStatement("UPDATE ADepartment032 set dept_name=? where dept_id='" + a_deptid+ "'");
+				a_ps.setString(1,a_deptname);
+				a_ps.executeQuery();
+				out.println("Data Updated Successfull Based on Your Department ID");
+			}
+			else if( (a_BTNDelete.equals("Delete") && a_deptid.length()>1) )
+			{
+				Statement a_st=a_connection.createStatement();
+				ResultSet a_rs=a_st.executeQuery("DELETE FROM ADepartment032 WHERE dept_id='"+a_deptid+"'");
+				out.println("Data Deleted Successfull Based on Your Department ID");
+			}
+			
+			
 		}
 		catch(Exception e)
 		{
