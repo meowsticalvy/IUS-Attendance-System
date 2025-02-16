@@ -33,9 +33,29 @@
 				a_ps.executeQuery();
 				out.println("Data Inserted Successfully");
 			}
-			else if( (a_BTNSearch.equals("Search") && a_deptid.length()==1 )
+			else if( (a_BTNSearch.equals("Search") && a_deptid.length()==1) )
 			{
-				
+				Statement a_st=a_connection.createStatement();
+				ResultSet a_rs=a_st.executeQuery("SELECT * FROM ADepartment032");
+				while(a_rs.next())
+				{
+					out.print(a_rs.getString(1));
+					out.print(", ");
+					out.print(a_rs.getString(2));
+					out.print("<br>");
+				}
+			}
+			else if( (a_BTNSearch.equals("Search") && a_deptid.length()>1) )
+			{
+				Statement a_st=a_connection.createStatement();
+				ResultSet a_rs=a_st.executeQuery("SELECT * FROM ADepartment032 WHERE dept_id='"+a_deptid+"'");
+				while(a_rs.next())
+				{
+					out.print(a_rs.getString(1));
+					out.print(", ");
+					out.print(a_rs.getString(2));
+					out.print("<br>");
+				}
 			}
 		}
 		catch(Exception e)
@@ -44,6 +64,6 @@
 		}
 		
 		%>
-		<a href="department.html">Insert Again</a>
+		<a href="department.html">Visit Again?</a>
 	</body>
 </html>
