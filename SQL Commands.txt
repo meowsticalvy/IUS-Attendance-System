@@ -152,12 +152,16 @@ set dept_id='CSE' where dept_id='sos';
 
 
 
+## Video 12 
 
-
-
-
-
-
+CREATE TABLE ARegistration032
+(
+username varchar2(15) primary key,
+password varchar2(10) not null,
+name varchar2(30) not null, 
+deptid varchar2(10), 
+constraint var_regis_dept foreign key(deptid) references ADepartment032(dept_id)
+);
 
 
 
