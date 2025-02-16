@@ -1,0 +1,15 @@
+CREATE TABLE ARegistration032
+(
+dept_id varchar2(5) primary key,
+dept_name varchar2(25) not null
+); 
+
+
+CREATE TABLE AProgram032
+(
+program_id varchar2(10) primary key,
+program_name varchar2(30) not null, 
+dept_id varchar2(5),
+constraint program_fk foreign key(dept_id) references ARegistration032(dept_id)
+);
+
