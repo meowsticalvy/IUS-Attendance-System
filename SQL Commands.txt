@@ -28,9 +28,6 @@ INSERT INTO AProgram032
 	values('cse','Computer Science','sos');
 	values('it','Information Technology','sos');
 	values('bba','Business Administration','sob');
-	values('cse','Computer Science and Engineering','sos');
-	values('cse','Computer Science and Engineering','sos');
-	values('cse','Computer Science and Engineering','sos');
 
 
 UPDATE AProgram032
@@ -41,8 +38,8 @@ UPDATE AProgram032
 
 CREATE TABLE ACourse032
 (
-code varchar2(5) primary key,
-title varchar2(25) not null,
+code varchar2(10) primary key,
+title varchar2(30) not null,
 program_id varchar2(5),
 constraint course_proid_fk foreign key(program_id) references AProgram032(program_id)
 );
@@ -56,7 +53,7 @@ constraint teacher_fk foreign key(dept_id) references ADepartment032(dept_id)
 );
 
 
-CREATE TABLE AStudent_Data032
+CREATE TABLE AStudent_Data032  
 (
 student_id number(10) primary key,
 name varchar2(30) not null,
@@ -67,10 +64,10 @@ constraint student_pro_fk foreign key(program_id) references AProgram032(program
 constraint student_cel_uq unique(cell_no)
 );
 
-CREATE TABLE AAttendance032
+CREATE TABLE AAttendance032 
 (
 student_id number(10),
-code varchar2(5),
+code varchar2(10),
 teacher_id varchar2(5),
 date_of_attendance date,
 semester varchar2(15),
@@ -79,6 +76,93 @@ constraint atten_stdid_fk foreign key (student_id) references AStudent_Data032(s
 constraint atten_code_fk foreign key (code) references ACourse032(code),
 constraint atten_teacher_fk foreign key (teacher_id) references ATeacher032(teacher_id)
 );
+
+
+
+
+
+## Video 5
+
+/ - For gettting to prev command 
+values('&dept_id','&dept_name')
+
+INSERT INTO AProgram032
+values('&program_id','&program_name','&dept_id');
+mba, masters of Business admin, sob
+eng, B.A in English Lierature
+ss,BSS Scoail Science,sss
+
+
+ALTER TABLE AProgram032
+modify program_name varchar2(50);
+
+
+INSERT ALL
+    INTO ACourse032 (code, title, program_id) VALUES ('CSE 1011', 'C Programming Language', 'cse')
+    INTO ACourse032 (code, title, program_id) VALUES ('CSE 1012', 'C Programming Language Lab', 'cse')
+    INTO ACourse032 (code, title, program_id) VALUES ('CSE 1013', 'Java Programming Language', 'cse')
+    INTO ACourse032 (code, title, program_id) VALUES ('CSE 1014', 'Java Programming Language Lab', 'cse')
+    INTO ACourse032 (code, title, program_id) VALUES ('CSE 2011', 'Website Design', 'it')
+    INTO ACourse032 (code, title, program_id) VALUES ('ENG 1101', 'English-I', 'eng')
+    INTO ACourse032 (code, title, program_id) VALUES ('BBA 1011', 'Organizational Behavior', 'bba')
+SELECT * FROM dual;
+
+
+INSERT ALL 
+    INTO ATeacher032 (teacher_id, name, dept_id) VALUES ('AA', 'Ahsan Arif', 'sos')
+    INTO ATeacher032 (teacher_id, name, dept_id) VALUES ('MR', 'Mr. Rafique', 'sos')
+    INTO ATeacher032 (teacher_id, name, dept_id) VALUES ('MT', 'Miss Tania', 'soa')
+    INTO ATeacher032 (teacher_id, name, dept_id) VALUES ('MN', 'Mr. Nahid', 'sob')
+    INTO ATeacher032 (teacher_id, name, dept_id) VALUES ('MAB', 'Md. Abdullah', 'sss')
+SELECT * FROM dual;
+
+
+INSERT ALL 
+    INTO AStudent_Data032 (student_id, name, program_id, date_of_birth, cell_no) VALUES (221101, 'Rahim', 'cse', '01-JAN-2020', '017115')
+    INTO AStudent_Data032 (student_id, name, program_id, date_of_birth, cell_no) VALUES (221102, 'Karim', 'cse', '02-JAN-2020', '017116')
+    INTO AStudent_Data032 (student_id, name, program_id, date_of_birth, cell_no) VALUES (221103, 'Abdullah', 'it', '03-FEB-2020', '017119')
+    INTO AStudent_Data032 (student_id, name, program_id, date_of_birth, cell_no) VALUES (221104, 'Aliyana', 'eng', '01-JAN-2021', '016115')
+    INTO AStudent_Data032 (student_id, name, program_id, date_of_birth, cell_no) VALUES (221105, 'Moon', 'bba', '01-OCT-2022', '017555')
+SELECT * FROM dual;
+
+
+
+
+
+INSERT ALL 
+    INTO AAttendance032 (student_id, code, teacher_id, date_of_attendance, semester, present) VALUES (221101, 'CSE 1011', 'AA', DATE '2024-01-01', 'Spring-24', 1)
+    INTO AAttendance032 (student_id, code, teacher_id, date_of_attendance, semester, present) VALUES (221101, 'CSE 1011', 'AA', DATE '2024-01-02', 'Spring-24', 0)
+    INTO AAttendance032 (student_id, code, teacher_id, date_of_attendance, semester, present) VALUES (221101, 'CSE 1011', 'AA', DATE '2024-01-03', 'Spring-24', 0)
+    INTO AAttendance032 (student_id, code, teacher_id, date_of_attendance, semester, present) VALUES (221101, 'CSE 1011', 'AA', DATE '2024-01-04', 'Spring-24', 1)
+    INTO AAttendance032 (student_id, code, teacher_id, date_of_attendance, semester, present) VALUES (221102, 'CSE 1011', 'AA', DATE '2024-01-01', 'Spring-24', 1)
+    INTO AAttendance032 (student_id, code, teacher_id, date_of_attendance, semester, present) VALUES (221102, 'CSE 1011', 'AA', DATE '2024-01-02', 'Spring-24', 0)
+    INTO AAttendance032 (student_id, code, teacher_id, date_of_attendance, semester, present) VALUES (221102, 'CSE 1011', 'AA', DATE '2024-01-03', 'Spring-24', 1)
+    INTO AAttendance032 (student_id, code, teacher_id, date_of_attendance, semester, present) VALUES (221103, 'CSE 1011', 'AA', DATE '2024-01-01', 'Spring-24', 1)
+SELECT * FROM dual;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
