@@ -1,4 +1,6 @@
-CREATE TABLE ARegistration032
+## Video 2
+
+CREATE TABLE ADepartment032
 (
 dept_id varchar2(5) primary key,
 dept_name varchar2(25) not null
@@ -10,6 +12,63 @@ CREATE TABLE AProgram032
 program_id varchar2(10) primary key,
 program_name varchar2(30) not null, 
 dept_id varchar2(5),
-constraint program_fk foreign key(dept_id) references ARegistration032(dept_id)
+constraint program_fk foreign key(dept_id) references ADepartment032(dept_id)
 );
+
+
+## Video 3 
+
+INSERT INTO ADepartment032 
+	values('sos','School of Sciences');
+	values('sob','School of Business');
+	values('soa','School of Arts');
+
+
+INSERT INTO AProgram032
+	values('cse','Computer Science','sos');
+	values('it','Information Technology','sos');
+	values('bba','Business Administration','sob');
+	values('cse','Computer Science and Engineering','sos');
+	values('cse','Computer Science and Engineering','sos');
+	values('cse','Computer Science and Engineering','sos');
+
+
+UPDATE AProgram032
+	set program_name ='Bussiness Administration'
+	where program_id ='bba';
+
+## Video 4
+
+CREATE TABLE ACourse032
+(
+code varchar2(5) primary key,
+title varchar2(25) not null,
+program_id varchar2(5),
+constraint course_proid_fk foreign key(program_id) references AProgram032(program_id)
+);
+
+CREATE TABLE ATeacher032
+(
+teacher_id varchar2(5) primary key,
+name varchar2(30) not null, 
+dept_id varchar2(5),
+constraint teacher_fk foreign key(dept_id) references ADepartment032(dept_id)
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
