@@ -3,26 +3,25 @@
 	<body>
 		<%@ page import="java.sql.*" %>
 		<%
-		String username = request.getParameter("user");
-		String password = request.getParameter("pass");
-		String fullname = request.getParameter("fullname");
-		String deptid = request.getParameter("deptid");
-		String v_signup = request.getParameter("signup");
-		String cancel = request.getParameter("cancel");
+		String ausername = request.getParameter("user");
+		String apassword = request.getParameter("pass");
+		String afullname = request.getParameter("fullname");
+		String adeptid = request.getParameter("deptid");
+		String a_signup = request.getParameter("signup");
 		
 		try 
 		{
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection conn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","alvi32");
-			if (v_signup.equals("Sign Up"))
+			Connection a_connection=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","alvi32");
+			if (a_signup.equals("Sign Up"))
 			{
-				PreparedStatement ps=conn.prepareStatement("INSERT INTO ARegistration032 values (?,?,?,?)");
-				ps.setString(1,username);
-				ps.setString(2,password);
-				ps.setString(3,fullname);
-				ps.setString(4,deptid);
-				ps.executeQuery();
-				out.print("Data Inserted Successfully");	
+				PreparedStatement a_ps=a_connection.prepareStatement("INSERT INTO ARegistration032 values (?,?,?,?)");
+				a_ps.setString(1,ausername);
+				a_ps.setString(2,apassword);
+				a_ps.setString(3,afullname);
+				a_ps.setString(4,adeptid);
+				a_ps.executeQuery();
+				out.print("Your Account Has Been Succesfully Created");	
 			}
 		}
 		catch(Exception e) 
@@ -34,7 +33,7 @@
 		
 		%>
 		
-		
+		<br><a href="login.html">Login Now?</a>
 	</body>
 	
 </html>

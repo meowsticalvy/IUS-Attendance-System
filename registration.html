@@ -3,15 +3,15 @@
 <head>
     <title>Registration Page</title>
     <script>
-        function clearForm() {
-            document.getElementById("registrationForm").reset();
+        function clearText() {
+            document.getElementById("alviform").reset();
         }
     </script>
 </head>
 <body>
     <center>
-        <h1>Registration</h1>            
-        <form id="registrationForm" action="registration.jsp" method="post">
+        <h1>Account Registration</h1>            
+        <form id="alviform" action="registration.jsp" method="post">
             <table border="0">
                 <tr height="30">
                     <td>Username:</td>
@@ -37,7 +37,7 @@
                     <td colspan="2" align="center">
                         <br>
                         <input type="submit" name="signup" value="Sign Up">
-                        <input type="button" name="cancel" value="Cancel" onclick="clearForm()">
+                        <input type="button" name="cancel" value="Cancel" onclick="clearText()">
                     </td>
                 </tr>
             </table>
