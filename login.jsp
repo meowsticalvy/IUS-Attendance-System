@@ -5,20 +5,28 @@
 	<body>
 		<%@ page import="java.sql.*" %>
 		<%
-		String username = request.getParameter("user");
-		String password = request.getParameter("pass");
-		String v_login = request.getParameter("login");
+		String ausername = request.getParameter("user");
+		String apassword = request.getParameter("pass");
+		String a_login = request.getParameter("login");
 		
 		try 
 		{
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection conn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","alvi32");
-			if (v_login.equals("Login"))
+			Connection a_connection=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","alvi32");
+			if (a_login.equals("Login") && ausername.length()>1)
 			{
-			Statement st=conn.createStatement();
-			ResultSet rs=st.executeQuery("SELECT * FROM ARegistration032 WHERE USER_NAME='" + username + "' and password='" + password + "'");
-				while(rs.next()) {
-					response.sendRedirect("dashboard.html");
+			Statement a_st=a_connection.createStatement();
+			ResultSet alviset=a_st.executeQuery("SELECT * FROM ARegistration032 WHERE USERNAME='" + ausername + "' and password='" + apassword + "'");
+				while(alviset.next()) 
+				{
+					if(alviset.getString(1).equals("admin")) 
+					{
+						response.sendRedirect("dashboard1.jsp");
+					}
+					else
+					{
+						response.sendRedirect("dashboard2.jsp");
+					}
 				}
 			}
 		}
