@@ -16,7 +16,7 @@
 			if (v_login.equals("Login"))
 			{
 			Statement st=conn.createStatement();
-			ResultSet rs=st.executeQuery("SELECT * FROM Registration WHERE USER_NAME='" + username + "' and password='" + password + "'");
+			ResultSet rs=st.executeQuery("SELECT * FROM ARegistration032 WHERE USER_NAME='" + username + "' and password='" + password + "'");
 				while(rs.next()) {
 					response.sendRedirect("dashboard.html");
 				}

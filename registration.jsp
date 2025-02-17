@@ -1,15 +1,12 @@
 <!Doctype HTML>
 <html>
-	<title>Login Page</title>
-	
 	<body>
 		<%@ page import="java.sql.*" %>
 		<%
 		String username = request.getParameter("user");
 		String password = request.getParameter("pass");
 		String fullname = request.getParameter("fullname");
-		String studentid = request.getParameter("SID");
-		String deptid = request.getParameter("DI");
+		String deptid = request.getParameter("deptid");
 		String v_signup = request.getParameter("signup");
 		String cancel = request.getParameter("cancel");
 		
@@ -19,12 +16,11 @@
 			Connection conn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","alvi32");
 			if (v_signup.equals("Sign Up"))
 			{
-				PreparedStatement ps=conn.prepareStatement("INSERT INTO Registration values (?,?,?,?,?)");
+				PreparedStatement ps=conn.prepareStatement("INSERT INTO ARegistration032 values (?,?,?,?)");
 				ps.setString(1,username);
 				ps.setString(2,password);
 				ps.setString(3,fullname);
-				ps.setString(4,studentid);
-				ps.setString(5,deptid);
+				ps.setString(4,deptid);
 				ps.executeQuery();
 				out.print("Data Inserted Successfully");	
 			}
