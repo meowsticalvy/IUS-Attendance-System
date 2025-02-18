@@ -57,7 +57,6 @@
 					out.print("<br>");
 				}
 			}
-			
 			else if( (a_BTNUpdate.equals("Update") && a_deptid.length()>1) && (a_deptname.length()>1) )
 			{
 				PreparedStatement a_ps=a_connection.prepareStatement("UPDATE ADepartment032 set dept_name=? where dept_id='" + a_deptid+ "'");

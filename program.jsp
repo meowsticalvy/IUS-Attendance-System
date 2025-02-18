@@ -34,7 +34,7 @@
 				a_ps.executeQuery();
 				out.println("Data Inserted Successfully");
 			}
-			else if( (a_BTNSearch.equals("Search") && a_programid.length()==1 && a_programname.length()==1)
+			else if( (a_BTNSearch.equals("Search") && a_programid.length()==1 && a_programname.length()==1) )
 			{
 				Statement a_st=a_connection.createStatement();
 				ResultSet a_rs=a_st.executeQuery("SELECT * FROM AProgram032");
@@ -48,7 +48,7 @@
 					out.print("<br>");
 				}
 			}
-			else if( (a_BTNSearch.equals("Search") && a_programid.length()>1 && a_programname.length()==1)
+			else if( a_BTNSearch.equals("Search") && a_programid.length()>1 && a_programname.length()==1 )
 			{
 				Statement a_st=a_connection.createStatement();
 				ResultSet a_rs=a_st.executeQuery("SELECT * FROM AProgram032 WHERE program_id='"+a_programid+"'");
@@ -62,8 +62,7 @@
 					out.print("<br>");
 				}
 			}
-			
-			else if( (a_BTNSearch.equals("Search") && a_programname.length()>1 && a_programid.length()==1) 
+			else if( a_BTNSearch.equals("Search") && a_programname.length()>1 && a_programid.length()==1 ) 
 			{
 				Statement a_st=a_connection.createStatement();
 				ResultSet a_rs=a_st.executeQuery("SELECT * FROM AProgram032 WHERE program_name='"+a_programname+"'");
@@ -77,11 +76,10 @@
 					out.print("<br>");
 				}
 			}			
-			
-			else if( (a_BTNSearch.equals("Search") && a_programname.length()>1 && a_programid.length()>1)
+			else if( a_BTNSearch.equals("Search") && a_programname.length()>1 && a_programid.length()>1 )
 			{
 				Statement a_st=a_connection.createStatement();
-				ResultSet a_rs=a_st.executeQuery("SELECT * FROM AProgram032 WHERE program_id='" + a_programid + "'" + "program_name='" + a_programname + "'");
+				ResultSet a_rs=a_st.executeQuery("SELECT * FROM AProgram032 WHERE program_id='" + a_programid + "' AND program_name='" + a_programname + "'");
 				while(a_rs.next())
 				{
 					out.print(a_rs.getString(1));
@@ -91,12 +89,11 @@
 					out.print(a_rs.getString(3));
 					out.print("<br>");
 				}
-			}			
-						
-			else if( (a_BTNUpdate.equals("Update") && a_programid.length()>1) && a_programname.length()>1 && a_deptid.length()>1 )
+			}					
+			else if( a_BTNUpdate.equals("Update") && a_programid.length()>1 && a_programname.length()>1 && a_deptid.length()>1 )
 			{
 				PreparedStatement a_ps=a_connection.prepareStatement("UPDATE AProgram032 set program_name=?, dept_id=? where program_id='" + a_programid + "'");
-				a_ps.setString(1,a_programid);
+				a_ps.setString(1,a_programname);
 				a_ps.setString(2,a_deptid);
 				a_ps.executeQuery();
 				out.println("Data Updated Successfull Based on Your Program ID");
