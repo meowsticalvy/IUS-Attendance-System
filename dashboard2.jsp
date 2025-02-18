@@ -1,7 +1,17 @@
 <html>
 <body>
 	<center>
-		
+		<%
+			String alvipageaccess=(String)session.getAttribute("access");
+			if(alvipageaccess!="dashboard2")
+			{
+				response.sendRedirect("login.html");
+			}
+			else
+			{
+				out.print("Welcome");
+			}
+		%>
 		<h1> Student Panel </h1>
 		
 		<table>
