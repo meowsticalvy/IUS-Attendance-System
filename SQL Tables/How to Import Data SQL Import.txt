@@ -1,0 +1,11 @@
+By Deafult SQL Searches for the files in 
+C://User//<USER_PROFILE> [ put 2 sql here ] then run this command in THE SQL Terminal 
+@exported_tables.sql;
+@exported_data.sql;
+
+
+or if they are in different location use this command in the SQL Terminal
+@C:\path\to\exported_tables.sql;
+@C:\path\to\exported_data.sql;
+
+

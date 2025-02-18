@@ -1,0 +1,8 @@
+SELECT directory_name, directory_path FROM dba_directories WHERE directory_name = 'DATA_PUMP_DIR';
+
+Use this command to know the location of the data pump directory 
+and put the exported table file there. 
+
+Then to import it use this file 
+
+impdp system/<your_pass>@xe tables=ADepartment032,ARegistration032,ACourse032,AStudent_Data032,ATeacher032,AAttendance032,AProgram032 dumpfile=exported_tables.dmp logfile=import_log.log
