@@ -164,10 +164,9 @@ constraint var_regis_dept foreign key(deptid) references ADepartment032(dept_id)
 );
 
 
-
-
-
-
+## Video 18
+ALTER TABLE AAttendance032
+add constraint var_unique unique(student_id,code,teacher_id,date_of_attendance);
 
 
 
