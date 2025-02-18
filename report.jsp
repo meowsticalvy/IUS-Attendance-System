@@ -1,14 +1,15 @@
-<%@ page import="java.sql.*" %>
 <!DOCTYPE html>
 <html>
 <head>
     <title>Attendance Report</title>
 </head>
 <body>
+	<%@ page import="java.sql.*" %>
+<center>
     <h2>Attendance Report for Student ID: <%= request.getParameter("student_id") %></h2>
     
     <table border="1">
-        <tr>
+        <tr align="center">
             <th>Course Code</th>
             <th>Course Title</th>
             <th>Teacher Name</th>
@@ -23,16 +24,18 @@
             if (studentId != null && !studentId.isEmpty()) {
                 try {
                     Class.forName("oracle.jdbc.driver.OracleDriver");
+                    Connection a_connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "system", "alvi32");
 
-                    Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "system", "alvi32");
+                    String data = "SELECT AATTENDANCE032.CODE, ACourse032.TITLE, AATTENDANCE032.TEACHER_ID, " +
+                                   "AATTENDANCE032.DATE_OF_ATTENDANCE, AATTENDANCE032.SEMESTER, AATTENDANCE032.PRESENT " +
+                                   "FROM AATTENDANCE032 " +
+                                   "JOIN ACourse032 ON AATTENDANCE032.CODE = ACourse032.CODE " +
+                                   "WHERE AATTENDANCE032.STUDENT_ID = ?";
 
-                    String query = "SELECT CODE, TITLE, TEACHER_ID, DATE_OF_ATTENDANCE, SEMESTER, PRESENT " +
-                                   "FROM AATTENDANCE032 WHERE STUDENT_ID = ?";
+                    PreparedStatement alvi_statement = a_connection.prepareStatement(data);
+                    alvi_statement.setInt(1, Integer.parseInt(studentId));  
                     
-                    PreparedStatement stmt = conn.prepareStatement(query);
-                    stmt.setInt(1, Integer.parseInt(studentId));  
-                    
-                    ResultSet rs = stmt.executeQuery();
+                    ResultSet rs = alvi_statement.executeQuery();
 
                     while (rs.next()) {
                         String courseCode = rs.getString("CODE");
@@ -42,17 +45,17 @@
                         String semester = rs.getString("SEMESTER");
                         int present = rs.getInt("PRESENT");
                         
-                        String teacherNameQuery = "SELECT NAME FROM ATEACHER032 WHERE TEACHER_ID = ?";
-                        PreparedStatement teacherStmt = conn.prepareStatement(teacherNameQuery);
-                        teacherStmt.setString(1, teacherId);
-                        ResultSet teacherRs = teacherStmt.executeQuery();
+                        String teacherString = "SELECT NAME FROM ATEACHER032 WHERE TEACHER_ID = ?";
+                        PreparedStatement teacherStatement = a_connection.prepareStatement(teacherString);
+                        teacherStatement.setString(1, teacherId);
+                        ResultSet teacherSet = teacherStatement.executeQuery();
                         String teacherName = "";
-                        if (teacherRs.next()) {
-                            teacherName = teacherRs.getString("NAME");
+                        if (teacherSet.next()) {
+                            teacherName = teacherSet.getString("NAME");
                         }
                         
         %>
-                        <tr>
+                        <tr align="center">
                             <td><%= courseCode %></td>
                             <td><%= courseTitle %></td>
                             <td><%= teacherName %></td>
@@ -63,14 +66,18 @@
         <%
                     }
 
-                    conn.close();
-                } catch (Exception e) {
-                    out.println("Error: " + e.getMessage());
+                } 
+				catch (Exception e) 
+				{
+                    out.println(e);
                 }
-            } else {
+            } 
+			else 
+			{
                 out.println("Please provide a valid Student ID.");
             }
         %>
     </table>
+</center>
 </body>
 </html>
