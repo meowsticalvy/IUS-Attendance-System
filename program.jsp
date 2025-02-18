@@ -113,6 +113,6 @@
 		}
 		
 		%>
-		<a href="program.html">Insert Again</a>
+		<a href="program.html">Go Back</a>
 	</body>
 </html>
