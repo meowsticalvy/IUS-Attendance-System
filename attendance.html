@@ -1,0 +1,57 @@
+<html>
+	<title>Attendance</title>
+	<body>
+		<center>
+		
+			<h1>Attendance Information</h1>
+			
+			<form action="attendance.jsp" method="post">
+			
+			<table border="0">
+				<tr height="30">
+					<td>Student ID:</td>
+					<td><input type="text" id="studentid" name="studentid"></td>
+				</tr>
+				
+				<tr height="30">
+					<td>Course ID:</td>
+					<td><input type="text" id="courseid" name="courseid"></td>
+				</tr>
+				
+				<tr height="30">
+					<td>Teacher ID:</td>
+					<td><input type="text" id="teacherid" name="teacherid"></td>
+				</tr>
+				
+				<tr height="30">
+					<td>Date of Attendance:</td>
+					<td><input type="text" id="dob" name="doa"></td>
+				</tr>
+					
+				<tr height="30">
+					<td>Semester:</td>
+					<td><input type="text" id="semester" name="semester"></td>
+				</tr>
+				
+				<tr height="30">
+					<td>Present:</td>
+					<td><input type="text" id="present" name="present"></td>
+				</tr>
+					
+				<tr height="30" align="center">
+					<td colspan="2">
+						<input type="submit" value="Insert" name="insertB">
+						<input type="submit" value="Search" name="searchB">
+						<input type="submit" value="Update" name="updateB">
+						<input type="submit" value="Delete" name="deleteB">
+					</td>
+				</tr>
+				
+			</table>
+			
+			</form>
+			
+			<a href="dashboard2.jsp">Back to Dashboard</a>
+		</center>
+	</body>
+</html>
