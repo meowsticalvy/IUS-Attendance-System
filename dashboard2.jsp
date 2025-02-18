@@ -31,7 +31,7 @@
 			<tr>
 				<td>
 					<br>
-					<b><a href="department.html">Back to Login Page</b></a>
+					<b><a href="login.html">Back to Login Page</b></a>
 				</td>
 			</tr>
 			
