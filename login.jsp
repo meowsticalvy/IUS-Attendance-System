@@ -8,6 +8,7 @@
 		String ausername = request.getParameter("user");
 		String apassword = request.getParameter("pass");
 		String a_login = request.getParameter("login");
+		String alvisession="";
 		
 		try 
 		{
@@ -21,10 +22,14 @@
 				{
 					if(alviset.getString(1).equals("admin")) 
 					{
+						alvisession="dashboard1.jsp";
+						session.setAttribute("access",alvisession);
 						response.sendRedirect("dashboard1.jsp");
 					}
 					else
 					{
+						alvisession="dashboard2.jsp";
+						session.setAttribute("access",alvisession);
 						response.sendRedirect("dashboard2.jsp");
 					}
 				}
