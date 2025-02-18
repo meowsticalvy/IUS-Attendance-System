@@ -3,7 +3,7 @@
 	<center>
 		<%
 			String alvipageaccess=(String)session.getAttribute("access");
-			if(alvipageaccess!="dashboard2")
+			if(alvipageaccess!="dashboard2.jsp")
 			{
 				response.sendRedirect("login.html");
 			}
@@ -18,7 +18,7 @@
 		
 			<tr>
 				<td>
-					<b><a href="attendance.html">	Daily Attendance Entry </b></a>
+					<b><a href="attendance.html">Daily Attendance Entry </b></a>
 				</td>
 			</tr>			
 			

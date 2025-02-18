@@ -3,7 +3,7 @@
 	<center>
 		<%
 			String alvipageaccess=(String)session.getAttribute("access");
-			if(alvipageaccess!="dashboard1")
+			if(alvipageaccess!="dashboard1.jsp")
 			{
 				response.sendRedirect("login.html");
 			}
